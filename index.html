@@ -565,6 +565,75 @@ section { padding: 100px 24px; max-width: var(--max); margin: 0 auto; }
 .cta-sub { font-size: 17px; color: var(--text-2); margin-bottom: 40px; line-height: 1.6; }
 .cta-actions { display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap; }
 
+/* ── Contact section ─────────────────── */
+.contact-section { padding: 100px 24px; }
+.contact-inner { max-width: 600px; margin: 0 auto; text-align: center; }
+.contact-card {
+  background: var(--navy-2);
+  border: 1px solid var(--navy-line);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  margin-top: 44px;
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+}
+.contact-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--amber), var(--amber-light));
+}
+.contact-form { display: flex; flex-direction: column; gap: 20px; }
+.contact-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.contact-field { display: flex; flex-direction: column; gap: 8px; }
+.contact-label { font-size: 13px; font-weight: 600; color: var(--text-2); }
+.contact-optional { color: var(--text-3); font-weight: 400; }
+.contact-input,
+.contact-textarea {
+  width: 100%;
+  font-family: var(--font);
+  font-size: 15px;
+  color: var(--text);
+  background: var(--navy-1);
+  border: 1px solid var(--navy-line);
+  border-radius: 10px;
+  padding: 12px 14px;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+.contact-input::placeholder, .contact-textarea::placeholder { color: var(--text-3); }
+.contact-input:focus,
+.contact-textarea:focus {
+  outline: none;
+  border-color: var(--amber);
+  box-shadow: 0 0 0 3px var(--amber-dim);
+}
+.contact-textarea { resize: vertical; min-height: 112px; line-height: 1.5; }
+.contact-submit { width: 100%; justify-content: center; margin-top: 4px; }
+.contact-success {
+  margin-top: 44px;
+  background: var(--navy-2);
+  border: 1px solid rgba(74,222,128,0.3);
+  border-radius: var(--radius-lg);
+  padding: 44px 40px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+.contact-success-icon {
+  width: 48px; height: 48px;
+  background: rgba(74,222,128,0.12);
+  border: 1px solid rgba(74,222,128,0.25);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px;
+  color: var(--success);
+}
+.contact-success-title { font-size: 18px; font-weight: 600; color: var(--text); }
+
 /* ── Footer ──────────────────────────── */
 footer { border-top: 1px solid var(--navy-line); padding: 48px 24px; }
 .footer-inner { max-width: var(--max); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
@@ -596,6 +665,8 @@ footer { border-top: 1px solid var(--navy-line); padding: 48px 24px; }
   .hero-proof { flex-direction: column; gap: 12px; }
   .pricing-card { padding: 32px 24px; }
   .mockup-frame { display: none; }
+  .contact-row { grid-template-columns: 1fr; }
+  .contact-card { padding: 28px 22px; }
 }
 
 /* ── Scroll animations ───────────────── */
@@ -616,10 +687,11 @@ footer { border-top: 1px solid var(--navy-line); padding: 48px 24px; }
     <li><a href="#who">Who uses it</a></li>
     <li><a href="#ai">AI</a></li>
     <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#contact">Contact</a></li>
   </ul>
   <div class="nav-cta">
     <a href="https://app.roto-track.com" class="btn btn-ghost">Sign in</a>
-    <a href="mailto:support@roto-track.com?subject=Demo request" class="btn btn-primary">Book a demo</a>
+    <a href="#contact" class="btn btn-primary">Book a demo</a>
   </div>
 </nav>
 
@@ -645,7 +717,7 @@ footer { border-top: 1px solid var(--navy-line); padding: 48px 24px; }
   </p>
 
   <div class="hero-actions">
-    <a href="mailto:support@roto-track.com?subject=Demo request" class="btn btn-primary btn-lg">
+    <a href="#contact" class="btn btn-primary btn-lg">
       Book a demo →
     </a>
     <a href="https://app.roto-track.com" class="btn btn-outline btn-lg">
@@ -879,8 +951,8 @@ footer { border-top: 1px solid var(--navy-line); padding: 48px 24px; }
       </div>
 
       <div style="display:flex;gap:12px;flex-wrap:wrap">
-        <a href="mailto:support@roto-track.com?subject=Demo request" class="btn btn-primary btn-lg" style="flex:1;justify-content:center">Book a demo →</a>
-        <a href="mailto:support@roto-track.com?subject=Pricing enquiry" class="btn btn-outline btn-lg" style="flex:1;justify-content:center">Get pricing</a>
+        <a href="#contact" class="btn btn-primary btn-lg" style="flex:1;justify-content:center">Book a demo →</a>
+        <a href="#contact" class="btn btn-outline btn-lg" style="flex:1;justify-content:center">Get pricing</a>
       </div>
     </div>
   </div>
@@ -893,8 +965,53 @@ footer { border-top: 1px solid var(--navy-line); padding: 48px 24px; }
     <h2 class="section-title">Ready to get your plant on track?</h2>
     <p class="cta-sub">Join the first rotomoulding plants running on a system built for how they actually work.</p>
     <div class="cta-actions">
-      <a href="mailto:support@roto-track.com?subject=Demo request" class="btn btn-primary btn-lg">Book a demo →</a>
+      <a href="#contact" class="btn btn-primary btn-lg">Book a demo →</a>
       <a href="https://app.roto-track.com" class="btn btn-outline btn-lg">Sign in</a>
+    </div>
+  </div>
+</div>
+
+<!-- ── Contact ── -->
+<div class="contact-section" id="contact">
+  <div class="contact-inner">
+    <div class="reveal">
+      <div class="section-label">Contact</div>
+      <h2 class="section-title">Get in touch</h2>
+      <p class="section-sub" style="margin:0 auto">Book a demo or ask us anything about RotoTrack.</p>
+    </div>
+
+    <form class="contact-card contact-form reveal" id="contact-form" style="transition-delay:0.1s"
+          action="https://formspree.io/f/mqeoyoko" method="POST">
+      <input type="hidden" name="_subject" value="RotoTrack Demo Request">
+      <input type="hidden" name="_next" value="https://roto-track.com?sent=1">
+
+      <div class="contact-row">
+        <div class="contact-field">
+          <label class="contact-label" for="cf-name">Name</label>
+          <input class="contact-input" id="cf-name" type="text" name="name" required autocomplete="name" placeholder="Your name">
+        </div>
+        <div class="contact-field">
+          <label class="contact-label" for="cf-email">Email</label>
+          <input class="contact-input" id="cf-email" type="email" name="email" required autocomplete="email" placeholder="you@company.com">
+        </div>
+      </div>
+
+      <div class="contact-field">
+        <label class="contact-label" for="cf-company">Company</label>
+        <input class="contact-input" id="cf-company" type="text" name="company" required autocomplete="organization" placeholder="Your plant or company">
+      </div>
+
+      <div class="contact-field">
+        <label class="contact-label" for="cf-message">Message <span class="contact-optional">(optional)</span></label>
+        <textarea class="contact-textarea" id="cf-message" name="message" placeholder="Tell us about your plant, or anything you'd like to know…"></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-primary btn-lg contact-submit">Send message</button>
+    </form>
+
+    <div class="contact-success reveal" id="contact-success" style="transition-delay:0.1s" hidden>
+      <div class="contact-success-icon">✓</div>
+      <div class="contact-success-title">Thanks! We'll be in touch within 1 business day.</div>
     </div>
   </div>
 </div>
@@ -923,6 +1040,20 @@ const observer = new IntersectionObserver((entries) => {
   entries.forEach(el => { if (el.isIntersecting) el.target.classList.add('visible'); });
 }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Contact form success — Formspree redirects back to ?sent=1 after submit.
+// Swap the form for a thank-you message and scroll it into view.
+const contactParams = new URLSearchParams(window.location.search);
+if (contactParams.get('sent') === '1') {
+  const form = document.getElementById('contact-form');
+  const success = document.getElementById('contact-success');
+  if (form) form.hidden = true;
+  if (success) { success.hidden = false; success.classList.add('visible'); }
+  const contactSection = document.getElementById('contact');
+  if (contactSection) contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  // Drop the query param so a refresh doesn't re-show the success state.
+  history.replaceState(null, '', window.location.pathname);
+}
 </script>
 </body>
 </html>
